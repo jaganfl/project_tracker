@@ -3,6 +3,9 @@
     <app-sidenav></app-sidenav>
   </div>
   <div class="content">
+      <div class="no-project" *ngIf="projectList.length===0">
+          There are no projects added. Add projects using + icon.
+        </div>
     <router-outlet></router-outlet>
   </div>
 </div>
