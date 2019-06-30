@@ -1,0 +1,14 @@
+<div>
+  <mat-list>
+    <h3 mat-subheader>
+      <span class="title">Projects</span>
+      <button mat-button (click)="openDialog()">
+        <mat-icon aria-hidden="false" aria-label="Add Project">add_box</mat-icon>
+        </button>
+    </h3>
+    <mat-list-item *ngFor="let project of projectList"
+    [class.active]="project.id === id">
+      <a mat-button [routerLink]="'project/' + project.id">{{project.name}}</a>
+    </mat-list-item>
+  </mat-list>
+</div>

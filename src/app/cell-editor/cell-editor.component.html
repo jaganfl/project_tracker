@@ -1,0 +1,40 @@
+<div>
+  <span class="pointer" *ngIf="!edit" (click)="toggle()">
+    {{ dateRange }}
+  </span>
+  <ng-container *ngIf="edit">
+    <mat-form-field class="date-control" floatLabel="never">
+      <input
+        matInput
+        [matDatepicker]="startDatePicker"
+        placeholder="Start date"
+        [(ngModel)]="startDateFormatted"        
+        [max]="endDateFormatted"
+        autofocus
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="startDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="date-control" floatLabel="never">
+      <input
+        matInput
+        [matDatepicker]="endDatePicker"
+        placeholder="End date"
+        [(ngModel)]="endDateFormatted"        
+        [min]="startDateFormatted"
+        autofocus
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="endDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+    <button mat-button>
+      <mat-icon aria-hidden="false" aria-label="done" (click)="update()" >done</mat-icon>
+    </button>
+  </ng-container>
+</div>
