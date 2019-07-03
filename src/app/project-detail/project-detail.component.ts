@@ -2,8 +2,9 @@ import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { AddCommentComponent } from "../add-comment/add-comment.component";
 import { ProjectListService } from "../services/project-list.service";
-import { ActivatedRoute, Router } from '@angular/router';
-import * as _ from 'lodash';    
+import { ActivatedRoute, Router } from "@angular/router";
+import * as _ from "lodash";
+import { AddPhaseComponent } from "../add-phase/add-phase.component";
 
 export interface PeriodicElement {
   planned: string;
@@ -54,6 +55,89 @@ const ELEMENT_DATA: PeriodicElement[] = [
   }
 ];
 
+const DATA = {
+  name: "Project 1",
+  phases: [
+    "Discovery",
+    "Design",
+    "Development",
+    "Testing",
+    "UAT",
+    "Hypercare",
+    "Production",
+    "Support"
+  ],
+  planned: {
+    Discovery: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Design: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Development: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Testing: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    UAT: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Hypercare: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Production: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Support: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    }
+  },
+  actual: {
+    Discovery: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Design: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Development: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Testing: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    UAT: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Hypercare: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Production: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    },
+    Support: {
+      startDate: "05/26/2019",
+      endDate: "05/30/2019"
+    }
+  },
+  issues: []
+};
+
 @Component({
   selector: "app-project-detail",
   templateUrl: "./project-detail.component.html",
@@ -61,10 +145,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ProjectDetailComponent {
   displayedColumns: string[] = ["phase", "planned", "actual"];
-  dataSource = ELEMENT_DATA;
+  dataSource = DATA;
   comments = [];
   id: string;
   private sub: any;
+  projectList = [];
 
   constructor(
     public dialog: MatDialog,
@@ -75,8 +160,9 @@ export class ProjectDetailComponent {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = params['id'];
+      this.id = params["id"];
     });
+    this.projectList = this.projectListService.getProjects();
   }
 
   ngOnDestroy() {
@@ -94,10 +180,54 @@ export class ProjectDetailComponent {
     });
   }
   delete() {
-    const projects = this.projectListService.getProjects();    
-    _.remove(projects, (project)=>{
+    const projects = this.projectListService.getProjects();
+    _.remove(projects, project => {
       return project.id === this.id;
     });
     this.router.navigate(["/dashboard"]);
+  }
+
+  deletePhase(phase: string) {
+    _.remove(this.dataSource.phases, (phaseName: string) => {
+      return phaseName === phase;
+    });
+  }
+  addPhase(): void {
+    const dialogRef = this.dialog.open(AddPhaseComponent, {
+      width: "500px",
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(name => {
+      if (name) {
+        this.dataSource.phases.push(name);
+        this.dataSource.planned[name]= {
+          startDate: '',
+          endDate: ''
+        }
+        this.dataSource.actual[name]= {
+          startDate: '',
+          endDate: ''
+        }
+      }
+    });
+  }
+
+  addIssue(){
+    const addIssuedialogRef = this.dialog.open(AddCommentComponent, {
+      width: "500px",
+      data: {}
+    });
+
+    addIssuedialogRef.afterClosed().subscribe(issue => {
+     if(issue){
+      this.dataSource.issues.push(issue);
+     } 
+    });
+  }
+  deleteIssue(issue: string) {
+    _.remove(this.dataSource.issues, (issueName: string) => {
+      return issueName === issue;
+    });
   }
 }

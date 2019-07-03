@@ -1,6 +1,7 @@
 <div>
   <span class="pointer" *ngIf="!edit" (click)="toggle()">
-    {{ dateRange }}
+    <span>{{ start || "Start Date" }}</span> -
+    <span>{{ end || "End Date" }}</span>
   </span>
   <ng-container *ngIf="edit">
     <mat-form-field class="date-control" floatLabel="never">
@@ -8,7 +9,7 @@
         matInput
         [matDatepicker]="startDatePicker"
         placeholder="Start date"
-        [(ngModel)]="startDateFormatted"        
+        [(ngModel)]="startDateFormatted"
         [max]="endDateFormatted"
         autofocus
       />
@@ -23,7 +24,7 @@
         matInput
         [matDatepicker]="endDatePicker"
         placeholder="End date"
-        [(ngModel)]="endDateFormatted"        
+        [(ngModel)]="endDateFormatted"
         [min]="startDateFormatted"
         autofocus
       />
@@ -34,7 +35,9 @@
       <mat-datepicker #endDatePicker></mat-datepicker>
     </mat-form-field>
     <button mat-button>
-      <mat-icon aria-hidden="false" aria-label="done" (click)="update()" >done</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="done" (click)="update()"
+        >done</mat-icon
+      >
     </button>
   </ng-container>
 </div>

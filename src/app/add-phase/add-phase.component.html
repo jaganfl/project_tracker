@@ -1,12 +1,12 @@
 <div>
-    <h1 mat-dialog-title>Add Project</h1>
+    <h1 mat-dialog-title>Add Phase</h1>
     <div mat-dialog-content>
-      <mat-form-field>
+      <mat-form-field floatLabel="never">
         <input matInput [(ngModel)]="data.name" placeholder="Name">
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Cancel</button>
-      <button mat-raised-button [mat-dialog-close]="data.name" cdkFocusInitial color="primary">Save</button>
+      <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Save</button>
     </div>    
 </div>

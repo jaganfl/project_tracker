@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { AddPhaseComponent } from './add-phase/add-phase.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     SidenavComponent,
     CellEditorComponent,
     AddProjectComponent,
+    AddPhaseComponent,
     AddCommentComponent
   ],
   imports: [
@@ -36,7 +38,7 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     
   ],
   providers: [],
-  entryComponents: [AddProjectComponent, AddCommentComponent],
+  entryComponents: [AddProjectComponent, AddCommentComponent, AddPhaseComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,32 +1,32 @@
-<div class="project-detail">
+<div class="project-detail" *ngIf="projectList.length > 0">
   <div class="action-items">
     <button mat-button (click)="delete()">
-        <mat-icon aria-hidden="false" aria-label="delete">delete</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="delete">delete</mat-icon>
     </button>
-    <button mat-button (click)="openCommentDialog()">
-        <mat-icon aria-hidden="false" aria-label="comment">comment</mat-icon>
-    </button>
+    <!-- <button mat-button (click)="openCommentDialog()">
+      <mat-icon aria-hidden="false" aria-label="comment">comment</mat-icon>
+    </button> -->
   </div>
   <div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 detail-table">
+    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 detail-table">
 
       <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
+            The actual rendered columns are set as a property on the row definition" 
     
-      <!-- Position Column -->
+      <!-- Position Column 
       <ng-container matColumnDef="phase">
         <th mat-header-cell *matHeaderCellDef>  </th>
         <td mat-cell *matCellDef="let element"> {{element.phase}} </td>
       </ng-container>
     
-      <!-- Name Column -->
+      <!-- Name Column 
       <ng-container matColumnDef="planned">
         <th mat-header-cell *matHeaderCellDef> Planned </th>
         <td mat-cell *matCellDef="let element"> 
             <app-cell-editor [dateRange]="element.planned"></app-cell-editor> </td>
       </ng-container>
     
-      <!-- Weight Column -->
+      <!-- Weight Column 
       <ng-container matColumnDef="actual">
         <th mat-header-cell *matHeaderCellDef> Actual </th>
         <td mat-cell *matCellDef="let element"> 
@@ -36,10 +36,84 @@
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> -->
+    <table class="table table-borderless detail-table">
+      <thead>
+        <tr class="detail-table-header">
+            <th colspan="3">&nbsp;</th>
+            <th *ngFor="let phase of dataSource.phases">
+              <div>{{ phase }}</div>
+              <button mat-icon-button class="delete" (click)="deletePhase(phase)">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </th>
+            <th>
+              <button mat-icon-button (click)="addPhase()">
+                <mat-icon>add_box</mat-icon>
+              </button>
+            </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="milestone">
+          <td colSpan="3" class="no-background">&nbsp;</td>
+          <td>Milestone</td>
+          <td [colSpan]="dataSource.phases.length">
+            <div contenteditable="true"></div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">Planned Date</td>
+          <td *ngFor="let phase of dataSource.phases">
+            <app-cell-editor
+              [start]="dataSource.planned[phase].startDate"
+              [end]="dataSource.planned[phase].endDate"
+            ></app-cell-editor>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">Actual Date</td>
+          <td *ngFor="let phase of dataSource.phases">
+            <app-cell-editor
+              [start]="dataSource.actual[phase].startDate"
+              [end]="dataSource.actual[phase].endDate"
+            ></app-cell-editor>
+          </td>
+        </tr>
+      </tbody>
     </table>
+    <h6 class="issue-tracker">Issue Tracker</h6>
+    <div class="container">
+      <div class="row">
+        <div class="col-1 add-issue">
+          <button mat-icon-button (click)="addIssue()">
+            <mat-icon>add_box</mat-icon>
+          </button>
+        </div>
+        <div class="col-11">
+          <table class="table table-sm table-borderless issues-table">
+            <tr *ngIf="dataSource.issues?.length === 0">
+              <td>No issues yet</td>
+            </tr>
+            <tr class="issues-table-row" *ngFor="let issue of dataSource.issues">
+              <td>{{ issue }}</td>
+              <td class="text-right">
+                <button
+                  mat-icon-button
+                  class="delete"
+                  (click)="deleteIssue(issue)"
+                >
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="comments" *ngIf="comments.length > 0">  
+  <div class="comments" *ngIf="comments.length > 0">
     <h3>Comments</h3>
-    <div *ngFor="let comment of comments" class="comment"> {{comment}}</div>
+    <div *ngFor="let comment of comments" class="comment">{{ comment }}</div>
   </div>
 </div>

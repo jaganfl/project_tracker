@@ -7,31 +7,25 @@ import * as moment from 'moment';
   styleUrls: ["./cell-editor.component.scss"]
 })
 export class CellEditorComponent implements OnInit {
-  @Input() dateRange: string;
+  @Input() start: string;
+  @Input() end: string;
 
   edit = false;
-  dateFormatted: any;
-  startDate: string;
-  endDate: string;
   startDateFormatted: string;
   endDateFormatted: string;
 
   ngOnInit() {
-    if (this.dateRange) {
-      const dates = this.dateRange.split('-'); 
-      this.startDate = dates[0];
-      this.endDate = dates[1];
-      this.startDateFormatted = moment(this.startDate, 'MM/DD/YYYY').format();      
-      this.endDateFormatted = moment(this.endDate, 'MM/DD/YYYY').format();    
+    if (this.start && this.end) {
+      this.startDateFormatted = moment(this.start, 'MM/DD/YYYY').format();      
+      this.endDateFormatted = moment(this.end, 'MM/DD/YYYY').format();    
     }
   }
   toggle(){
     this.edit = !this.edit;
   }
   update(){
-    const startDate = moment(this.startDateFormatted).format('MM/DD/YYYY');
-    const endDate = moment(this.endDateFormatted).format('MM/DD/YYYY');
-    this.dateRange = startDate + '-' + endDate;
+    this.start = moment(this.startDateFormatted).format('MM/DD/YYYY');
+    this.end = moment(this.endDateFormatted).format('MM/DD/YYYY');    
     this.toggle();
   }
 }
