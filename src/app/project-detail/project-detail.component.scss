@@ -1,0 +1,68 @@
+.project-detail {
+  padding: 0 20px;
+}
+.detail-table {
+  width: 100%;
+  font-size: 12px;
+  
+}
+.action-items {
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.comments {
+  padding: 20px;
+}
+.comment {
+  padding: 5px;
+  background-color: #f6f6f6;
+  margin: 5px 0;
+  text-indent: 10px;
+}
+.issue-tracker {
+  padding: 10px  5px;
+  margin-top: 30px;
+  background-color: #a1efef;
+}
+.milestone {
+  background-color: #caecf9;
+}
+.no-background {
+  background-color: transparent;
+}
+.add-issue {
+  text-align: center;
+  background-color: #c6efcf;
+}
+.text-right {
+  text-align: right;
+}
+.issues-table {
+  margin-bottom: 0;
+}
+.issues-table-row {
+  border-bottom: 1px solid #f6f6f6;
+}
+.detail-table-header {
+  background-color: #79cc64;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.issue-tracker-container {
+  border: 1px solid #f6f6f6;
+  border-bottom: none;
+  .row {
+    border-bottom: 1px solid #f6f6f6;
+  }
+}
+.add-milstone {
+  background-color: #f6f6f6;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+  button {
+    width: 200px;
+  }
+}

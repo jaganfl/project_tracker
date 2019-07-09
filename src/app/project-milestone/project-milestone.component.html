@@ -1,0 +1,24 @@
+<div class="container theme0" [ngClass]="'theme'+index">
+  <div class="row  header mb-2 mt-3">
+    <div class="col-2 no-background">&nbsp;</div>
+    <div class="col-9 p-3">Milestone {{index+1}}</div>
+  </div>
+  <div class="row pb-2">
+    <div class="col-2">Planned Date</div>
+    <div class="col-1 text-center" *ngFor="let phase of phases">
+      <app-cell-editor
+        [start]="milestone.planned[phase].startDate"
+        [end]="milestone.planned[phase].endDate"
+      ></app-cell-editor>
+    </div>
+  </div>
+  <div class="row d-shadow pb-2">
+    <div class="col-2">Actual Date</div>
+    <div class="col-1 text-center" *ngFor="let phase of phases">
+      <app-cell-editor
+        [start]="milestone.actual[phase].startDate"
+        [end]="milestone.actual[phase].endDate"
+      ></app-cell-editor>
+    </div>
+  </div>
+</div>

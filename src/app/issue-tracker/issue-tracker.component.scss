@@ -1,0 +1,18 @@
+
+.issue-tracker {
+  padding: 10px  5px;
+  margin-top: 30px;
+  background-color: #a1efef;
+}
+.issue-tracker-container {
+  border: 1px solid #f6f6f6;
+  border-bottom: none;
+  margin-bottom: 20px;
+  font-size: 12px;
+  .label {
+    font-weight: bold;
+  }
+  .row {
+    border-bottom: 1px solid #f6f6f6;
+  }
+}

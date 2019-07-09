@@ -1,0 +1,17 @@
+.root {
+  width: 100%;
+  display: flex;
+}
+.sidenav {
+  width: 20%;
+  height: 80vh;
+  background-color: #f6f6f6;
+}
+.content {
+  width: 80%;
+}
+.no-project{
+  background-color: #f6f6f6;
+  padding: 20px;
+  margin: 20px;
+}

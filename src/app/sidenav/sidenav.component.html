@@ -1,0 +1,22 @@
+<div class="sidenav-content">
+  <mat-list>
+    <h5 class="title">
+      Projects
+    </h5>
+    <mat-list-item
+      *ngFor="let project of projectList"
+      [class.active]="project.id === id"
+    >
+      <a mat-button [routerLink]="'project/' + project.id">{{
+        project.name
+      }}</a>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-raised-button color="primary" class="w100" (click)="openDialog()">
+        <mat-icon aria-hidden="false" aria-label="Add Project"
+          >add_box</mat-icon
+        >
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

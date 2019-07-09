@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #d6d6d6;
+}
+.mat-list-item .mat-button {
+  width: 100%;
+  text-align: left;
+}
+.mat-list-item.active {
+    background-color: #d6d6d6;
+}
+.text-center {
+  text-align: center;
+}
+.w100 {
+  width: 100%;
+}
+.sidenav-content {
+  .title {
+    text-align: center; 
+    background-color: #fdbf32;
+    padding: 10px;
+  }
+  .mat-list-base {
+    padding-top: 0;
+  }
+}

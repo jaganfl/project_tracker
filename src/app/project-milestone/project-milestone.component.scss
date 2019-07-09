@@ -1,0 +1,86 @@
+.project-detail {
+  padding: 0 20px;
+}
+.detail-table {
+  width: 100%;
+  font-size: 12px;
+  
+}
+.action-items {
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.comments {
+  padding: 20px;
+}
+.comment {
+  padding: 5px;
+  background-color: #f6f6f6;
+  margin: 5px 0;
+  text-indent: 10px;
+}
+.issue-tracker {
+  padding: 10px  5px;
+  margin-top: 30px;
+  background-color: #a1efef;
+}
+.milestone {
+  border: 1px solid red;
+}
+.header {
+  font-weight: bold;
+  font-size: 14px;
+}
+.no-background {
+  background-color: transparent;
+}
+.add-issue {
+  text-align: center;
+  background-color: #c6efcf;
+}
+.text-right {
+  text-align: right;
+}
+.issues-table {
+  margin-bottom: 0;
+}
+.issues-table-row {
+  border-bottom: 1px solid #f6f6f6;
+}
+.detail-table-header {
+  background-color: #79cc64;
+}
+
+.issue-tracker-container {
+  border: 1px solid #f6f6f6;
+  border-bottom: none;
+  .row {
+    border-bottom: 1px solid #f6f6f6;
+  }
+}
+
+.d-shadow {
+  box-shadow: 1px 5px 5px #f6f6f6;
+  padding-bottom: 10px;
+}
+
+.theme0, .theme3, .theme6 {
+  background-color: #fff700;
+  .header {
+    background-color: #f2f9ca;
+  }
+}
+.theme1, .theme4, .theme7 {
+  background-color: #c1f5b0;
+  .header {
+    background-color: #99ea8a;
+  }
+}
+
+.theme2, .theme5, .theme8 {
+  background-color: #c6ddf5;
+  .header {
+    background-color: #2785e6;
+  }
+}
