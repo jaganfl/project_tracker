@@ -17,6 +17,7 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
 import { AddPhaseComponent } from './add-phase/add-phase.component';
 import { ProjectMilestoneComponent } from './project-milestone/project-milestone.component';
 import { IssueTrackerComponent } from './issue-tracker/issue-tracker.component';
+import { loginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IssueTrackerComponent } from './issue-tracker/issue-tracker.component';
     AddPhaseComponent,
     AddCommentComponent,
     ProjectMilestoneComponent,
-    IssueTrackerComponent
+    IssueTrackerComponent,
+    loginComponent
   ],
   imports: [
     BrowserModule,

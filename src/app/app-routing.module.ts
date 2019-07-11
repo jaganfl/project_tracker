@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { ProjectDetailComponent } from "./project-detail/project-detail.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { loginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,11 @@ const routes: Routes = [
       }
     ]
   },
-  { path: "", redirectTo: "/dashboard", pathMatch: "full" }
+  {
+    path: "login",
+    component: loginComponent
+  },
+  { path: "", redirectTo: "/login", pathMatch: "full" }
 ];
 
 @NgModule({
