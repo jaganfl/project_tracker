@@ -10,7 +10,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { SidenavComponent } from "./sidenav/sidenav.component";
 import { CellEditorComponent } from "./cell-editor/cell-editor.component";
 import { MaterialModule } from './material-ui.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
@@ -18,6 +18,8 @@ import { AddPhaseComponent } from './add-phase/add-phase.component';
 import { ProjectMilestoneComponent } from './project-milestone/project-milestone.component';
 import { IssueTrackerComponent } from './issue-tracker/issue-tracker.component';
 import { loginComponent } from './login/login.component';
+import { SettingsComponent } from './settings/settings.component';
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,16 @@ import { loginComponent } from './login/login.component';
     AddCommentComponent,
     ProjectMilestoneComponent,
     IssueTrackerComponent,
-    loginComponent
+    loginComponent,
+    SettingsComponent,
+    AutoCompleteComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     MatNativeDateModule
     

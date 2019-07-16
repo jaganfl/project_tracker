@@ -4,3 +4,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
+.access-level-group {
+    .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+        line-height: 30px;
+        font-size: 12px;
+      }
+}

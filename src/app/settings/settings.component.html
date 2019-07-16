@@ -1,0 +1,42 @@
+<div class="container settings">
+  <h5 class="header">Settings</h5>
+  <div class="add-user-panel shadow-sm">
+    <!-- <mat-form-field class="full-width">
+      <input matInput placeholder="User Name" [(ngModel)]="userName" />
+    </mat-form-field> -->
+    <app-auto-complete (change)="userChange($event)"></app-auto-complete>
+    <button mat-raised-button color="primary" (click)="addUser()">
+      Add
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>User Name</th>
+        <th>Access Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="users.length === 0">
+        <td colSpan="2">No users yet</td>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>
+          <span class="avatar">{{getAvatar(user)}}</span>
+          <span>{{ user }}</span>
+        </td>
+        <td>
+          <mat-button-toggle-group
+            class="access-level-group"
+            name="accessLevel"
+            aria-label="Access Level"
+            (change)="updateUser($event)"
+          >
+            <mat-button-toggle value="read">Read</mat-button-toggle>
+            <mat-button-toggle value="write">Write</mat-button-toggle>
+          </mat-button-toggle-group>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

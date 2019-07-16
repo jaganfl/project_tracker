@@ -450,4 +450,8 @@ export class ProjectDetailComponent {
   addMilstone() {
     this.dataSource.milestones.push(MILESTONE);
   }
+
+  openSettings(){
+    this.router.navigate(['settings'], {relativeTo: this.route});
+  }
 }
