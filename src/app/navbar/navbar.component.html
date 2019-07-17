@@ -1,6 +1,11 @@
 <div class="navbar">
-  <h3>Project Dashboard</h3>
-  <button mat-icon-button *ngIf="showLogoutBtn" (click)="logout()">
-    <mat-icon>power_settings_new</mat-icon>
-  </button>
+  <h3 class="cursor-pointer" (click)="goToDashboard()">Project Dashboard</h3>
+  <div class="controls" *ngIf="showLogoutBtn">
+    <button mat-icon-button (click)="openSettings()">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </div>
 </div>

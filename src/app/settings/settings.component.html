@@ -1,5 +1,7 @@
-<div class="container settings">
-  <h5 class="header">Settings</h5>
+<div class="container-fluid settings">
+  <h5 class="header">
+    <mat-icon>settings</mat-icon> <span class="label">Settings</span>
+  </h5>
   <div class="add-user-panel shadow-sm">
     <!-- <mat-form-field class="full-width">
       <input matInput placeholder="User Name" [(ngModel)]="userName" />
@@ -9,34 +11,29 @@
       Add
     </button>
   </div>
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th>User Name</th>
-        <th>Access Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf="users.length === 0">
-        <td colSpan="2">No users yet</td>
-      </tr>
-      <tr *ngFor="let user of users">
-        <td>
-          <span class="avatar">{{getAvatar(user)}}</span>
-          <span>{{ user }}</span>
-        </td>
-        <td>
-          <mat-button-toggle-group
-            class="access-level-group"
-            name="accessLevel"
-            aria-label="Access Level"
-            (change)="updateUser($event)"
-          >
-            <mat-button-toggle value="read">Read</mat-button-toggle>
-            <mat-button-toggle value="write">Write</mat-button-toggle>
-          </mat-button-toggle-group>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered settings-table">
+      <thead class="thead-dark">
+        <tr>
+          <th class="user-col">User Name</th>
+          <th *ngFor="let project of projectList">{{ project.name }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="users.length === 0">
+          <td colSpan="100">No users yet</td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td class="user-col">
+            <span class="avatar">{{ getAvatar(user) }}</span>
+            <span>{{ user }}</span>
+          </td>
+          <td *ngFor="let project of projectList">
+            <mat-checkbox>Read</mat-checkbox>
+            <mat-checkbox>Write</mat-checkbox>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

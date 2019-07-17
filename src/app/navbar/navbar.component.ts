@@ -25,4 +25,10 @@ export class NavbarComponent {
     this.router.navigate(["/login"]);
     this.userService.logout.next(true);
   }
+  openSettings(){
+    this.router.navigate(['/settings']);
+  }
+  goToDashboard(){
+    this.router.navigate(['/dashboard']);
+  }
 }

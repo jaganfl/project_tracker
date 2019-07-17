@@ -14,16 +14,16 @@ const routes: Routes = [
       {
         path: "project/:id",
         component: ProjectDetailComponent        
-      },
-      {
-        path: "project/:id/settings",
-        component: SettingsComponent
       }
     ]
   },
   {
     path: "login",
     component: loginComponent
+  },
+  {
+    path: "settings",
+    component: SettingsComponent
   },
   { path: "", redirectTo: "/login", pathMatch: "full" }
 ];

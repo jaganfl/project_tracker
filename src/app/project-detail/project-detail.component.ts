@@ -451,7 +451,5 @@ export class ProjectDetailComponent {
     this.dataSource.milestones.push(MILESTONE);
   }
 
-  openSettings(){
-    this.router.navigate(['settings'], {relativeTo: this.route});
-  }
+  
 }

@@ -3,6 +3,10 @@
   .header {
     border-bottom: 2px solid #77daf1;
     padding: 15px;
+    .label {
+      vertical-align: top;
+      margin-left: 5px;
+    }
   }
   .avatar {
     width: 30px;
@@ -22,7 +26,7 @@
 .add-user-panel {
   padding: 10px 20px;
   margin: 20px 0;
-  border-top: 1px solid #f6f6f6;  
+  border-top: 1px solid #f6f6f6;
   border-bottom: 2px solid #fdbf33;
   button {
     margin-left: 10px;
@@ -37,5 +41,25 @@
     }
   }
 }
-
-
+mat-checkbox {
+  &:first-child {
+    margin-right: 15px;
+  }
+}
+.settings-table { 
+  margin-bottom: 0;
+  th, td {
+    white-space: nowrap;
+  }
+  .user-col {
+    position: sticky;
+    left: 0px;
+    z-index: 1;
+  }
+  td.user-col {
+    background-color: #ffffff;
+  }
+  & tbody tr:nth-of-type(odd) td.user-col {
+    background-color: #f2f2f2;
+  }
+}
